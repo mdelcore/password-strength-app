@@ -13,10 +13,35 @@ function updateStrengther() {
   assessments.forEach(assessment => {
     if(assessment == null) return;
 
-    strength -= assessment.strengthLost
+    strength -= assessment.strengthLost;
     const pwdCheckEl = document.createElement("p")
     pwdCheckEl.innerHTML = assessment.pwdCheck;
-    passwordInput.appendChild(pwdCheckEl)
+    passwordCheck.appendChild(pwdCheckEl);
   });
-  strengther.style.setProperty("--strength-amount", strength)
+  strengther.style.setProperty("--strength-amount", strength);
+}
+
+function calculatePasswordStrength(password) {
+  const assessment = [];
+  assessment.push(lengthAssessment(password));
+  return assessment;
+}
+
+// Length Assessment Function
+function lengthAssessment(password) {
+  const length = password.length;
+
+  if(length <= 5) {
+    return {
+      pwdCheck: 'Password is too short',
+      strengthLost: 40,
+    };
+  }
+
+  if(length <= 10) {
+    return {
+      pwdCheck: 'Password could be longer',
+      strengthLost: 15,
+    };
+  }
 }
