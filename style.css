@@ -29,13 +29,13 @@ section {
   display: flex;
 }
 
-section>div {
+section > div {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 }
 
-.strength {
+.strengther {
   height: 100%;
   width: 20px;
   background-color: white;
@@ -43,7 +43,7 @@ section>div {
   position: relative;
 }
 
-.strength::after {
+.strengther::after {
   /* --strength-amount: 50; */
   content: "";
   position: absolute;
